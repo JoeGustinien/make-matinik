@@ -39,3 +39,5 @@ function initBoard() {
         board.appendChild(row) // Add the completed row to the board
     }
 }
+
+initBoard(); 
