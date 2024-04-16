@@ -63,3 +63,11 @@ h1 {
     border-radius: 5px;
     margin-top: 20px;
 }
+
+@media (max-width: 768px) {
+  .keyboard-button {
+      font-size: 0.8rem;  /* Réduire la taille de la police */
+      padding: 0.3rem;    /* Réduire le padding */
+      margin: 0 1px;      /* Réduire la marge */
+  }
+}
