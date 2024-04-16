@@ -1,3 +1,3 @@
 # make-matinik
 
-Un clone worldle en JS/HTML/CSS 
+Un clone wordle en JS/HTML/CSS 
