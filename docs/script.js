@@ -42,16 +42,6 @@ function initBoard() {
 
 
 initBoard(); 
-
-function addDefinitionButton() {
-    const board = document.getElementById("game-board");
-    const definitionButton = document.createElement("button");
-    definitionButton.textContent = "Get Definition";
-    definitionButton.className = "definition-button";  // Assurez-vous d'ajouter des styles appropriés dans votre CSS
-    definitionButton.onclick = fetchDefinition;  // Fonction à appeler lors du clic sur le bouton
-    board.appendChild(definitionButton);
-}
-
     document.getElementById('definition-button').addEventListener('click', function() {
         const word = rightGuessString;  // Supposons que cette variable contienne le mot à deviner
         const apiUrl = `https://api.dictionaryapi.dev/api/v2/entries/en/${word}`;
