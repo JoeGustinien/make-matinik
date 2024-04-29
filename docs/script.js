@@ -43,6 +43,37 @@ function initBoard() {
 
 initBoard(); 
 
+function addDefinitionButton() {
+    const board = document.getElementById("game-board");
+    const definitionButton = document.createElement("button");
+    definitionButton.textContent = "Get Definition";
+    definitionButton.className = "definition-button";  // Assurez-vous d'ajouter des styles appropriés dans votre CSS
+    definitionButton.onclick = fetchDefinition;  // Fonction à appeler lors du clic sur le bouton
+    board.appendChild(definitionButton);
+}
+
+    document.getElementById('definition-button').addEventListener('click', function() {
+        const word = rightGuessString;  // Supposons que cette variable contienne le mot à deviner
+        const apiUrl = `https://api.dictionaryapi.dev/api/v2/entries/en/${word}`;
+    
+        fetch(apiUrl)
+            .then(response => response.json())
+            .then(data => {
+                if (data.title === "No Definitions Found") {
+                    toastr.error("No definition found for this word.");
+                } else {
+                    const definition = data[0].meanings[0].definitions[0].definition;
+                    toastr.info(`${definition}`);
+                }
+            })
+            .catch(error => {
+                console.error("Error fetching the definition:", error);
+                toastr.error("Failed to fetch definition.");
+            });
+    });
+    
+
+
 
 // Ajout d'un écouteur d'événement sur l'objet document pour capter les relâchements de touches
 document.addEventListener("keyup", (e) => {
@@ -161,7 +192,7 @@ function checkGuess () {
 
     // Si la supposition est correcte, termine le jeu
     if (guessString === rightGuessString) {
-        toastr.success("You guessed right! Game over!")
+        toastr.success("You guessed right!")
         guessesRemaining = 0
         return
     } else {

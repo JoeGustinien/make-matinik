@@ -57,6 +57,7 @@ h1 {
   }
 
   .reset-button {
+    margin: .5rem;
     padding: 10px 20px;
     font-size: 16px;
     cursor: pointer;
@@ -64,6 +65,17 @@ h1 {
     border: 1px solid #ccc;
     border-radius: 5px;
     margin-top: 20px;
+}
+
+.definition-button {
+  margin: .5rem;
+  padding: 10px 20px;
+  font-size: 16px;
+  cursor: pointer;
+  background-color: #f8f9fa;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  margin-top: 20px;
 }
 
 @media (max-width: 768px) {
