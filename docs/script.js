@@ -44,10 +44,10 @@ function initBoard() {
 initBoard(); 
     document.getElementById('definition-button').addEventListener('click', function() {
         const word = rightGuessString;  // Supposons que cette variable contienne le mot à deviner
-        const apiUrl = `https://api.dictionaryapi.dev/api/v2/entries/en/${word}`;
     
-        fetch(apiUrl)
+        fetch(`https://cors-anywhere.herokuapp.com/https://api.dictionaryapi.dev/api/v2/entries/en/${word}`)
             .then(response => response.json())
+            .then(data => console.log(data))
             .then(data => {
                 if (data.title === "No Definitions Found") {
                     toastr.error("No definition found for this word.");
